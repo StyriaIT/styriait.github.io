@@ -2,13 +2,21 @@
 const { count, title } = Astro.props;
 ---
 
-<div class="animate text-center">
-    <p class="text-6xl font-bold">{count}</p>
-    <p class="text-4xl font-semibold">{title}</p>
+<div>
+    <p>{count}</p>
+    <p>{title}</p>
 </div>
 
-<style lang="scss">
+<style>
+    div {
+        @apply text-center;
+    }
+
     div > p:first-child {
-        color: var(--action-color);
+        @apply text-6xl font-bold text-bayern-light;
+    }
+
+    div > p {
+        @apply text-4xl font-semibold;
     }
 </style>
