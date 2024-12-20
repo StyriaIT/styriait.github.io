@@ -1,0 +1,14 @@
+---
+const { count, title } = Astro.props;
+---
+
+<div class="animate text-center">
+    <p class="text-6xl font-bold">{count}</p>
+    <p class="text-4xl font-semibold">{title}</p>
+</div>
+
+<style lang="scss">
+    div > p:first-child {
+        color: var(--action-color);
+    }
+</style>

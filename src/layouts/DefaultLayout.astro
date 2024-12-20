@@ -1,0 +1,104 @@
+---
+import { ClientRouter } from 'astro:transitions';
+
+import "@astrojs/tailwind/base.css";
+import "../assets/scss/globals.scss";
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const { title, description } = Astro.props;
+
+const url = Astro.site;
+
+const siteTitle = `${title} • Inovative software solutions for your needs.`;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <!-- general meta -->
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+        <meta name="keywords" content="software, development, web, mobile, desktop, applications, custom, solutions, automation, digital, transformation" />
+        <meta name="author" content="Prevista team" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="rating" content="General" />
+        
+        <!-- open graph -->
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={description} />
+
+        <title>{siteTitle}</title>
+
+        <!-- favicon -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <ClientRouter />
+    </head>
+    <body>
+        <Header />
+        <main id="main-content" transition:animate="fade">
+            <slot />
+        </main>
+        <Footer />
+
+        <style lang="scss" is:global>
+            // theme settings
+            :root {
+                --radius-small: 3px;
+                --radius-large: 6px;
+                --gap-default: 2rem;
+                --font-measure: 70ch;
+                --font-family-default: "Open Sans", sans-serif;
+                --font-family-special: "Open Sans", sans-serif;
+                // light theme
+                --font-color: var(--neutral-900);
+                --action-color: var(--primary-300);
+                --action-color-state: var(--primary-500);
+                --background: var(--neutral-100);
+                --primary-background: var(--primary-100);
+                --neutral-background: var(--neutral-200);
+            }
+
+            // dark color scheme overrides
+            .darkmode {
+                --font-color: var(--neutral-100);
+                --action-color: var(--secondary-100);
+                --action-color-state: var(--secondary-500);
+                --background: var(--dark-100);
+                --primary-background: var(--primary-500);
+                --neutral-background: var(--neutral-900);
+            }
+
+            // sticky footer on low content pages
+            html,
+            body {
+                height: 100%;
+                overflow-x: hidden;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                color: var(--font-color);
+                background-color: var(--background);
+
+                main {
+                    flex: 1 0 auto;
+                }
+
+                footer {
+                    flex-shrink: 0;
+                }
+            }
+        </style>
+    </body>
+</html>
