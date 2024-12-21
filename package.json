@@ -1,6 +1,6 @@
 {
-  "name": "prevista",
-  "description": "prevista website",
+  "name": "arber.cc",
+  "description": "arber website",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
@@ -10,12 +10,13 @@
   },
   "devDependencies": {
     "@astrojs/tailwind": "^5.1.4",
+    "accessible-astro-components": "^3.0.1",
     "@iconify-json/ion": "^1.2.2",
     "@iconify-json/mdi": "^1.2.2",
-    "accessible-astro-components": "^3.0.1",
     "astro": "^5.1.1",
     "astro-icon": "^1.1.4",
     "sass": "^1.83.0",
-    "tailwindcss": "^3.4.16"
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
   }
 }

@@ -5,6 +5,7 @@ const { value } = Astro.props;
 
 import okayImg from '../assets/okay.svg';
 ---
+
 <header class="mb-10 flex flex-row gap-5 justify-start items-center">
     <Image src={okayImg} alt="okay" class="flex-none w-20 h-auto" />
     <h2 class="flex flex-1 text-5xl justify-start items-stretch">{value}</h2>

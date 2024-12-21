@@ -8,7 +8,7 @@ export default {
                 current: 'currentColor',
                 bayern: {
                     'light': '#3B8FD9',
-                    'medium': '#123C73',
+                    'medium': '#1F5AA6',
                     'dark': '#123C73',
                     'white': '#EBEFF2',
                     'eggwhite': '#BACBD9'

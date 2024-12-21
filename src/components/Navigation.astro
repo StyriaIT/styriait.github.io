@@ -2,7 +2,6 @@
 import ResponsiveToggle from './ResponsiveToggle.astro'
 import { DarkMode } from 'accessible-astro-components'
 import { Image } from 'astro:assets'
-//import logo from '../assets/img/logo.png'
 
 import logoImg from '../assets/logo.svg'
 ---
@@ -108,8 +107,7 @@ import logoImg from '../assets/logo.svg'
     }
 
     // execution
-    mainMenu &&
-      mainMenu.addEventListener('keydown', (event) => {
+    mainMenu && mainMenu.addEventListener('keydown', (event) => {
         const element = event.target as Element
         const currentMenuItem = element.closest('li')
         const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
