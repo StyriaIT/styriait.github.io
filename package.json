@@ -1,6 +1,6 @@
 {
-  "name": "arber.cc",
-  "description": "arber website",
+  "name": "styria.it",
+  "description": "Styria software solutions",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
