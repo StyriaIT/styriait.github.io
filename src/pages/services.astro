@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+
+import iconImg from '../assets/icon.svg';
+import Feature from '../components/Feature.astro';
+---
+
+<Layout title="Services">
+    <section class="mx-auto max-w-4xl">
+        <div class="text-center">
+            <Image 
+                src={iconImg} 
+                alt="Services"  
+                width={100} 
+                height={75} 
+                class="block mb-2 mx-auto max-w-full" 
+            />
+            <h1 class="text-4xl lg:text-5xl font-bold">Services</h1>
+            <h2 class="text-lg mt-4 text-slate-600">
+                We provide digital transformation, custom software, and an expert crew that redefine your expectations.
+            </h2>
+        </div>
+        <p class="text-center text-lg mt-4 mb-10 text-slate-600">
+            We provide digital transformation, custom software, and an expert crew that redefine your expectations.
+        </p>
+    </section>
+    <div class="mx-auto max-w-5xl">
+        <section>
+            <h3 class="text-4xl lg:text-5xl font-bold">Custom software development</h3>
+            <div class="my-10 mx-1 grid md:grid-cols-3 gap-10">
+                <Feature icon="mdi:web" title="Web solutions" />
+                <Feature icon="mdi:cloud" title="Cloud solutions" />
+                <Feature icon="mdi:graph" title="DevOps solutions" />
+            </div>
+        </section>
+        <section>
+            <h3 class="text-4xl lg:text-5xl font-bold">Enterprise application development</h3>
+            <div class="my-10 mx-1 grid md:grid-cols-3 gap-10">
+                <Feature icon="jakarta" title="Jakarta applications" />
+                <Feature icon="spring" title="Spring applications" />
+                <Feature title="Vert.x applications" />
+            </div>
+        </section>
+        <section>
+            <h3 class="text-4xl lg:text-5xl font-bold">Web application development</h3>
+            <div class="my-10 mx-1 grid md:grid-cols-3 gap-10">
+                <Feature title="Bun.js applications" />
+                <Feature title="React.js applications" />
+                <Feature title="Next.js applications" />
+            </div>
+        </section>
+    </div>
+</Layout>
