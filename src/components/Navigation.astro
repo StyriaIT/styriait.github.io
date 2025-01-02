@@ -214,8 +214,12 @@ import logoImg from '../assets/styria.svg'
 </script>
 
 <style lang="scss" is:global>
-  @use '../assets/scss/base/breakpoint' as *;
-  @use '../assets/scss/base/outline' as *;
+  //@use '../assets/scss/base/breakpoint' as *;
+ // @use '../assets/scss/base/outline' as *;
+
+  .container {
+    @apply mx-auto max-w-7xl;
+  }
 
   #main-navigation {
     > .container {
@@ -377,35 +381,6 @@ import logoImg from '../assets/styria.svg'
         background-color: var(--neutral-background);
         border: 2px solid black;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-      }
-    }
-  }
-
-  .darkmode-toggle {
-    padding: 0;
-    border: none;
-
-    svg {
-      width: 30px;
-      margin-top: 4px;
-    }
-
-    svg path {
-      fill: var(--action-color);
-    }
-
-    &:hover {
-      svg path {
-        fill: var(--action-color-state);
-      }
-    }
-
-    &:focus {
-      @include outline;
-
-      &:not(:focus-visible) {
-        outline: none;
-        box-shadow: none;
       }
     }
   }
