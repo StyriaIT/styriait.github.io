@@ -1,6 +1,5 @@
 ---
 import ResponsiveToggle from './ResponsiveToggle.astro'
-import { DarkMode } from 'accessible-astro-components'
 import { Image } from 'astro:assets'
 
 import logoImg from '../assets/styria.svg'
@@ -17,7 +16,6 @@ import logoImg from '../assets/styria.svg'
           <slot />
         </ul>
       </nav>
-      <DarkMode />
       <ResponsiveToggle />
     </div>
     <nav class="mobile-menu" aria-label="Main navigation mobile">
@@ -107,7 +105,7 @@ import logoImg from '../assets/styria.svg'
     }
 
     // execution
-    mainMenu && mainMenu.addEventListener('keydown', (event) => {
+    /*mainMenu && mainMenu.addEventListener('keydown', (event) => {
         const element = event.target as Element
         const currentMenuItem = element.closest('li')
         const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
@@ -195,7 +193,7 @@ import logoImg from '../assets/styria.svg'
         if (targetItem) {
           targetItem.querySelector('a, button, input').focus()
         }
-      })
+      })*/
 
     dropdownMenus &&
       dropdownMenus.forEach((dropdownMenu) => {
@@ -203,9 +201,9 @@ import logoImg from '../assets/styria.svg'
       })
 
     setActiveMenuItem()
-    checkMenuSize()
+   // checkMenuSize()
 
-    window.addEventListener('resize', checkMenuSize)
+   // window.addEventListener('resize', checkMenuSize)
     window.addEventListener('click', (event) => {
       const element = event.target as Element
       if (!element.hasAttribute('aria-haspopup') && !element.classList.contains('submenu-item')) {

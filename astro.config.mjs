@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind'
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://prevista.github.io',
+    site: 'https://styria.it',
     integrations: [
         icon(),
         tailwind(),

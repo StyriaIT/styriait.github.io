@@ -1,0 +1,27 @@
+---
+import ResponsiveToggle from './ResponsiveToggle.astro'
+import { Image } from 'astro:assets'
+
+import logoImg from '../assets/styria.svg'
+---
+
+<div  class="is-desktop py-8">
+  <div class="container">
+    <a href="/" class="flex items-center gap-2 !no-underline">
+      <Image src={logoImg} alt="Styria logo" class="w-40 h-40" />
+    </a>
+    <div class="wrapper">
+      <nav class="desktop-menu" aria-label="Main navigation desktop">
+        <ul class="menu">
+          <slot />
+        </ul>
+      </nav>
+      <ResponsiveToggle />
+    </div>
+    <nav class="mobile-menu" aria-label="Main navigation mobile">
+      <ul class="menu">
+        <slot />
+      </ul>
+    </nav>
+  </div>
+</div>
