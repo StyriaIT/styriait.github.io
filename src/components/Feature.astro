@@ -16,10 +16,6 @@ const {
 </div>
 
 <style lang="scss">
-  //  @use "../assets/scss/base/breakpoint" as *;
-
-  //  @use "../assets/scss/base/breakpoint" as *;
-
     .feature {
         @apply relative;
         @apply w-full;
@@ -38,22 +34,14 @@ const {
 
         &::before {
             inset: 0;
-            /*background-color: var(--neutral-100);
-            border: 3px solid var(--neutral-700);
-            border-radius: 1rem;
-           */
-            @apply bg-slate-50;         // background-color: var(--neutral-100);
+            @apply bg-slate-50;
             @apply border-2 border-slate-500;
             @apply rounded-2xl;
-            //@apply shadow-2xl;
             box-shadow: 0 0 0 6px var(--neutral-100);
             z-index: 1;
         }
 
         &::after {
-           /* background-color: var(--action-color);
-            
-            border-radius: 1rem;*/
             @apply rounded-2xl;
             @apply bg-bayern-light;
             inset: 1rem -0.85rem -0.85rem 1rem;
@@ -62,80 +50,7 @@ const {
     }
 
     :global(.feature [data-icon]) {
-       // height: auto;
-       // width: 4rem;
-        //color: var(--action-color);
         @apply w-16 h-16;
         @apply text-bayern-light;
     }
-
-    :global(.darkmode .feature::before) {
-        background-color: var(--dark-100);
-        box-shadow: 0 0 0 6px var(--dark-100);
-    }
-
-   /* .feature {
-        inset: 0;
-        @apply z-0;
-     
-        @apply bg-slate-50;         // background-color: var(--neutral-100);
-        @apply border-2 border-slate-500;
-        @apply rounded-2xl;
-        @apply shadow-2xl;
-        
-        * {
-            position: relative;
-            z-index: 2;
-        }
-
-        &::after {
-            content: "";
-            position: absolute;
-            background-color: var(--action-color);
-            inset: 1rem -0.85rem -0.85rem 1rem;
-            border-radius: 1rem;
-            z-index: z-10;
-        }
-    }*/
-
-    /*.feature {
-        position: relative;
-        width: calc(100% - 0.5rem);
-        padding: 2rem;
-
-        > 
-
-        @include breakpoint(large) {
-            width: 100%;
-        }
-
-        &::before,
-        &::after {
-           
-        }
-
-        &::before {
-           
-            @apply bg-slate-50;         // background-color: var(--neutral-100);
-            @apply border-2 border-slate-200;
-            @apply rounded-2xl;
-            //border: 3px solid var(--neutral-700);
-            //border-radius: 1rem;
-            box-shadow: 0 0 0 6px var(--neutral-100);
-            z-index: 1;
-        }
-
-       
-    }*/
-
-    /*:global(.feature [data-icon]) {
-        height: auto;
-        width: 4rem;
-        color: var(--action-color);
-    }
-
-    :global(.darkmode .feature::before) {
-        background-color: var(--dark-100);
-        box-shadow: 0 0 0 6px var(--dark-100);
-    }*/
 </style>

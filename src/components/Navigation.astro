@@ -1,209 +1,100 @@
 ---
-import ResponsiveToggle from './ResponsiveToggle.astro'
 import { Image } from 'astro:assets'
+import ResponsiveToggle from './ResponsiveToggle.astro'
 
 import logoImg from '../assets/styria.svg'
 ---
 
 <div id="main-navigation" class="is-desktop py-8">
-  <div class="container">
-    <a href="/" class="flex items-center gap-2 !no-underline">
-      <Image src={logoImg} alt="Styria logo" class="w-40 h-40" />
-    </a>
-    <div class="wrapper">
-      <nav class="desktop-menu" aria-label="Main navigation desktop">
-        <ul class="menu">
-          <slot />
-        </ul>
-      </nav>
-      <ResponsiveToggle />
+    <div class="container">
+        <a href="/" class="flex items-center gap-2 !no-underline">
+            <Image src={logoImg} alt="Styria logo" class="w-40 h-40" />
+        </a>
+        <div class="wrapper">
+            <nav class="desktop-menu">
+                <ul class="menu">
+                    <slot />
+                </ul>
+            </nav>
+            <ResponsiveToggle />
+        </div>
+        <nav class="mobile-menu">
+            <ul class="menu">
+                <slot />
+            </ul>
+        </nav>
     </div>
-    <nav class="mobile-menu" aria-label="Main navigation mobile">
-      <ul class="menu">
-        <slot />
-      </ul>
-    </nav>
-  </div>
 </div>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    // variables
-    const mainNav = document.querySelector('#main-navigation')
-    const mainMenu = mainNav.querySelector('ul')
-    const dropdownMenus = [...document.querySelectorAll('.has-dropdown button')]
+    document.addEventListener('astro:page-load', () => {
+        const mainNav = document.querySelector('#main-navigation');
+        const dropdownMenus = [
+            ...document.querySelectorAll('.has-dropdown button')
+        ];
 
-    // functions
-    const setActiveMenuItem = () => {
-      const mobileDesktopMenus = mainNav.querySelectorAll('nav > ul')
-      const currenPathname = window.location.pathname
+        const setActiveMenuItem = () => {
+            const mobileDesktopMenus = mainNav.querySelectorAll('nav > ul')
+            const currenPathname = window.location.pathname
 
-      mobileDesktopMenus.forEach((menu) => {
-        const menuItems = [...menu.querySelectorAll('a:not([rel*="external"])')] as HTMLAnchorElement[]
+            mobileDesktopMenus.forEach((menu) => {
+                const menuItems = [...menu.querySelectorAll('a:not([rel*="external"])')] as HTMLAnchorElement[]
 
-        menuItems.forEach((menuItem) => {
-          if (currenPathname.includes(menuItem.pathname.replaceAll('/', '')) && menuItem.textContent !== 'Home') {
-            menuItem.classList.add('is-active')
-            menuItem.setAttribute('aria-current', 'page')
-          } else if (menuItem.textContent === 'Home' && currenPathname === '/') {
-            menuItem.classList.add('is-active')
-            menuItem.setAttribute('aria-current', 'page')
-          }
-        })
-      })
-    }
-
-    const checkMenuSize = () => {
-      const mainNavWidth = mainNav.getBoundingClientRect().width
-      const desktopMenuWidth = document.querySelector('.desktop-menu').getBoundingClientRect().width
-      const logoWidthBuffer = 300
-      const totalMenuWidth = Math.round(desktopMenuWidth) + logoWidthBuffer
-
-      if (totalMenuWidth >= mainNavWidth) {
-        mainNav.classList.remove('is-desktop')
-        mainNav.classList.add('is-mobile')
-      } else if (totalMenuWidth <= mainNavWidth) {
-        mainNav.classList.add('is-desktop')
-        mainNav.classList.remove('is-mobile')
-      }
-    }
-
-    const isOutOfViewport = (element) => {
-      const elementBounds = element.getBoundingClientRect()
-      return elementBounds.right > (window.innerWidth || document.documentElement.clientWidth)
-    }
-
-    const openDropdownMenu = (dropdownMenu) => {
-      const dropdownList = dropdownMenu.parentNode.querySelector('ul')
-
-      dropdownMenu.classList.add('show')
-      dropdownMenu.setAttribute('aria-expanded', 'true')
-
-      if (isOutOfViewport(dropdownList)) {
-        dropdownList.style.left = 'auto'
-      }
-    }
-
-    const closeDropdownMenu = (dropdownMenu) => {
-      dropdownMenu.classList.remove('show')
-      dropdownMenu.setAttribute('aria-expanded', 'false')
-    }
-
-    const closeAllDropdownMenus = () => {
-      for (let i = 0; i < dropdownMenus.length; i++) {
-        closeDropdownMenu(dropdownMenus[i])
-      }
-    }
-
-    const toggleDropdownMenu = (event) => {
-      if (event.target.getAttribute('aria-expanded') === 'false') {
-        closeAllDropdownMenus()
-        openDropdownMenu(event.target)
-      } else {
-        closeDropdownMenu(event.target)
-      }
-    }
-
-    // execution
-    /*mainMenu && mainMenu.addEventListener('keydown', (event) => {
-        const element = event.target as Element
-        const currentMenuItem = element.closest('li')
-        const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
-        const currentDropdownMenu = element.closest('.has-dropdown button')
-        const currentDropdownMenuItem = element.closest('.has-dropdown li')
-        const currentIndex = menuItems.findIndex((item) => item === currentMenuItem)
-
-        const key = event.key
-        let targetItem
-
-        if (key === 'ArrowRight') {
-          if (menuItems.indexOf(currentMenuItem) === menuItems.length - 1) {
-            targetItem = menuItems[0]
-          } else {
-            targetItem = menuItems[currentIndex + 1]
-          }
+                menuItems.forEach((menuItem) => {
+                    if (currenPathname.includes(menuItem.pathname.replaceAll('/', '')) && menuItem.textContent !== 'Home') {
+                        menuItem.classList.add('is-active')
+                        menuItem.setAttribute('aria-current', 'page')
+                    } else if (menuItem.textContent === 'Home' && currenPathname === '/') {
+                        menuItem.classList.add('is-active')
+                        menuItem.setAttribute('aria-current', 'page')
+                    }
+                });
+            });
         }
 
-        if (key === 'ArrowLeft') {
-          if (menuItems.indexOf(currentMenuItem) === 0) {
-            targetItem = menuItems[menuItems.length - 1]
-          } else {
-            targetItem = menuItems[currentIndex - 1]
-          }
+        const isOutOfViewport = (element) => {
+            const elementBounds = element.getBoundingClientRect()
+            
+            return elementBounds.right > (window.innerWidth || document.documentElement.clientWidth)
         }
 
-        if (key === 'Escape') {
-          targetItem = menuItems[0]
+        const openDropdownMenu = (dropdownMenu) => {
+            const dropdownList = dropdownMenu.parentNode.querySelector('ul')
+
+            dropdownMenu.classList.add('show')
+            dropdownMenu.setAttribute('aria-expanded', 'true')
+
+            if (isOutOfViewport(dropdownList)) {
+                dropdownList.style.left = 'auto'
+            }
         }
 
-        if (currentDropdownMenu) {
-          const firstDropdownItem = currentDropdownMenu.nextElementSibling.querySelector('li')
-
-          if (key === 'ArrowDown') {
-            event.preventDefault()
-            openDropdownMenu(currentDropdownMenu)
-            targetItem = firstDropdownItem
-          }
-
-          if (key === 'Escape') {
-            closeDropdownMenu(currentDropdownMenu)
-          }
+        const closeDropdownMenu = (dropdownMenu) => {
+            dropdownMenu.classList.remove('show')
+            dropdownMenu.setAttribute('aria-expanded', 'false')
         }
 
-        if (currentDropdownMenuItem) {
-          const currentDropdownList = currentDropdownMenuItem.parentNode
-          const dropdownMenuItems = [...currentDropdownList.querySelectorAll('li')]
-          const currentIndex = dropdownMenuItems.findIndex((item) => item === currentDropdownMenuItem)
+        const closeAllDropdownMenus = () => {
+            for (let i = 0; i < dropdownMenus.length; i++) {
+                closeDropdownMenu(dropdownMenus[i])
+            }
+        }
 
-          if (key === 'ArrowDown') {
-            event.preventDefault()
-
-            if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === dropdownMenuItems.length - 1) {
-              targetItem = dropdownMenuItems[0]
+        const toggleDropdownMenu = (event) => {
+            if (event.target.getAttribute('aria-expanded') === 'false') {
+                closeAllDropdownMenus()
+                openDropdownMenu(event.target)
             } else {
-              targetItem = dropdownMenuItems[currentIndex + 1]
+                closeDropdownMenu(event.target)
             }
-          }
-
-          if (key === 'ArrowUp') {
-            event.preventDefault()
-
-            if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === 0) {
-              targetItem = dropdownMenuItems[dropdownMenuItems.length - 1]
-            } else {
-              targetItem = dropdownMenuItems[currentIndex - 1]
-            }
-          }
-
-          if (key === 'Escape') {
-            const currentDropdownMenu = (currentDropdownList as Element).previousElementSibling
-            targetItem = currentDropdownMenu.parentNode
-            closeAllDropdownMenus()
-          }
-
-          if (key === 'Tab') {
-            const currentDropdownMenu = (currentDropdownList as Element).previousElementSibling
-
-            if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === dropdownMenuItems.length - 1) {
-              closeDropdownMenu(currentDropdownMenu)
-            }
-          }
         }
 
-        if (targetItem) {
-          targetItem.querySelector('a, button, input').focus()
-        }
-      })*/
+        dropdownMenus && dropdownMenus.forEach((dropdownMenu) => {
+            dropdownMenu.addEventListener('click', toggleDropdownMenu);
+        });
 
-    dropdownMenus &&
-      dropdownMenus.forEach((dropdownMenu) => {
-        dropdownMenu.addEventListener('click', toggleDropdownMenu)
-      })
+        setActiveMenuItem();
 
-    setActiveMenuItem()
-   // checkMenuSize()
-
-   // window.addEventListener('resize', checkMenuSize)
     window.addEventListener('click', (event) => {
       const element = event.target as Element
       if (!element.hasAttribute('aria-haspopup') && !element.classList.contains('submenu-item')) {
@@ -214,20 +105,17 @@ import logoImg from '../assets/styria.svg'
 </script>
 
 <style lang="scss" is:global>
-  //@use '../assets/scss/base/breakpoint' as *;
- // @use '../assets/scss/base/outline' as *;
-
-  .container {
-    @apply mx-auto max-w-7xl;
-  }
-
-  #main-navigation {
-    > .container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+    .container {
+        @apply mx-auto max-w-7xl;
     }
 
+    #main-navigation > .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    #main-navigation {
     &.is-desktop {
       .desktop-menu {
         visibility: visible;
@@ -236,10 +124,6 @@ import logoImg from '../assets/styria.svg'
 
       .mobile-menu {
         display: none;
-      }
-
-      .darkmode-toggle {
-        margin-top: -6px;
       }
     }
 
@@ -283,6 +167,7 @@ import logoImg from '../assets/styria.svg'
           text-decoration: none;
           font-size: 1.125rem;
           line-height: 1.6875rem;
+          @apply text-bayern-medium;
         }
 
         a:hover,
@@ -297,7 +182,8 @@ import logoImg from '../assets/styria.svg'
         }
 
         .is-active {
-          font-weight: bold;
+            @apply font-bold;
+            @apply text-bayern-dark;
         }
       }
     }
@@ -333,15 +219,15 @@ import logoImg from '../assets/styria.svg'
         padding: 0;
         margin-top: -1px;
         border: none;
-        color: var(--action-color);
+        //@apply text-bayern-medium;
 
-        &:hover {
+       /* &:hover {
           color: var(--action-color-state);
 
           &::after {
             border-color: var(--action-color-state);
           }
-        }
+        }*/
 
         &::after {
           content: '';
@@ -378,8 +264,8 @@ import logoImg from '../assets/styria.svg'
         bottom: auto;
         left: 0;
         padding: 1rem;
-        background-color: var(--neutral-background);
-        border: 2px solid black;
+        //background-color: var(--neutral-background);
+        //border: 2px solid black;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
       }
     }
