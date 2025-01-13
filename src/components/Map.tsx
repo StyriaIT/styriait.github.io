@@ -1,7 +1,7 @@
 import { divIcon } from "leaflet";
 import { MapContainer, TileLayer, Marker  } from 'react-leaflet';
 
-export default function Map() {
+export default function Map({ center, position }) {
     const size = 15;
     const icon = divIcon({
         iconSize: [size, size],
@@ -27,9 +27,9 @@ export default function Map() {
     });
 
     return (
-        <MapContainer center={[52.5172077, 13.3833228]} zoom={15} scrollWheelZoom={false} className="w-full h-[90%]">
+        <MapContainer center={center} zoom={15} scrollWheelZoom={false} className="w-full h-[90%]">
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[52.51723056767026, 13.386262468175785]} icon={icon} />
+            <Marker position={position} icon={icon} />
         </MapContainer>
     );
 }

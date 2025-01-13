@@ -9,44 +9,44 @@ const {
 
 <div class="feature flex flex-col gap-4">
     <Icon name={icon} />
-    <div class="content">
-        <h3 class="mb-2">{title}</h3>
+    <div>
+        <h3 class="mb-2 text-2xl font-medium">{title}</h3>
         <slot />
     </div>
 </div>
 
-<style lang="scss">
+<style>
     .feature {
         @apply relative;
         @apply w-full;
         @apply p-8;
+    }
 
-        > * {
-            position: relative;
-            z-index: 2;
-        }
+    .feature > * {
+        position: relative;
+        z-index: 2;
+    }
 
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-        }
+    .feature::before,
+    .feature::after {
+        content: "";
+        position: absolute;
+    }
 
-        &::before {
-            inset: 0;
-            @apply bg-slate-50;
-            @apply border-2 border-slate-500;
-            @apply rounded-2xl;
-            box-shadow: 0 0 0 6px var(--neutral-100);
-            z-index: 1;
-        }
+    .feature::before {
+        inset: 0;
+        @apply bg-slate-50;
+        @apply border-2 border-slate-500;
+        @apply rounded-2xl;
+        box-shadow: 0 0 0 6px white;
+        z-index: 1;
+    }
 
-        &::after {
-            @apply rounded-2xl;
-            @apply bg-bayern-light;
-            inset: 1rem -0.85rem -0.85rem 1rem;
-            z-index: 0;
-        }
+    .feature::after {
+        @apply rounded-2xl;
+        @apply bg-bayern-light;
+        inset: 1rem -0.85rem -0.85rem 1rem;
+        z-index: 0;
     }
 
     :global(.feature [data-icon]) {

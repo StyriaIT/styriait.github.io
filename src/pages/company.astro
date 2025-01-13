@@ -23,7 +23,7 @@ import 'leaflet/dist/leaflet.css';
                 class="block mb-2 mx-auto max-w-full" 
             />
             <h1 class="text-4xl lg:text-5xl font-bold">The Company</h1>
-            <h2 class="text-xl font-medium mt-5">
+            <h2 class="text-xl font-medium mt-5 leading-relaxed">
                 StyriaIT formely Quattor are provides <strong>end-to-end</strong> software solutions for your bussines needs and
                 our vision is to become the go-to "Solutions Company" for businesses facing complex software solutions
                 based on latest and modern <strong>open-source</strong> technologies.
@@ -31,13 +31,36 @@ import 'leaflet/dist/leaflet.css';
         </div>
     </section>
     <section class="mx-auto mb-20 max-w-6xl">
-        <div class="grid md:grid-cols-2 gap-10">
-            <div>
+        <h3 class="text-xl font-medium mt-5"></h3>
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="min-h-96">
                 <h2 class="mb-5 text-xl leading-relaxed">Unter den Linden 40, 10117 Berlin, Germany</h2>
-                <Map client:only />
+                <Map 
+                    center={[52.5172077, 13.3833228]} 
+                    position={[52.51723056767026, 13.386262468175785]} 
+                    client:only 
+                />
             </div>
-            <div>
-                <h2 class="mb-5 text-xl leading-relaxed">Have something to say? Fill up the form or send email.</h2>
+            <div class="min-h-96">
+                <h2 class="mb-5 text-xl leading-relaxed">Dieffenbachstraße 73, 10967 Berlin, Germany</h2>
+                <Map 
+                    center={[52.4939737, 13.4103292]} 
+                    position={[52.49406680112912, 13.411804420155947]} 
+                    client:only 
+                />
+            </div>
+            <div class="min-h-96">
+                <h2 class="mb-5 text-xl leading-relaxed">Via Vittorio Veneto, 18, 20091 Bresso MI, Italy</h2>
+                <Map 
+                    center={[45.5405785, 9.1866757]} 
+                    position={[45.54074009026515, 9.189293511660042]} 
+                    client:only 
+                />
+            </div>
+        </div>
+
+            <div class="mx-auto max-w-3xl text-center">
+                <h2 class="mt-20 mb-5 text-2xl leading-relaxed">Have something to say? Fill up the form or send email.</h2>
                 <form action="https://api.web3forms.com/submit" method="POST" novalidate>
                     <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
                     <div class="mb-5">
@@ -73,7 +96,7 @@ import 'leaflet/dist/leaflet.css';
             </div>
         </div>
     </section>
-    <section class="mx-auto mb-20 max-w-6xl">
+   <!-- <section class="mx-auto mb-20 max-w-6xl">
         <div class="text-center text-4xl lg:text-5xl font-bold">
             <h1 class="mb-5">Our partners</h1>
             <div class="flex flex-col md:flex-row gap-8 items-center justify-center">
@@ -83,5 +106,5 @@ import 'leaflet/dist/leaflet.css';
                 <Image src={vectorLogo} width="200" height="50" alt="Vector logo" />
             </div>
         </div>
-    </section>
+    </section> -->
 </Layout>
