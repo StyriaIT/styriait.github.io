@@ -1,9 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 
-//import "@astrojs/tailwind/base.css";
-//import "../assets/scss/globals.scss";
-
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -12,8 +9,6 @@ const { title, description } = Astro.props;
 const url = Astro.site;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const siteTitle = `${title} • Inovative software solutions for your needs.`;
-
-import 'flowbite';
 ---
 
 <html lang="en">

@@ -1,15 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { 
-    title = "Title",
-    icon = "mdi:rocket",  
-} = Astro.props;
+const { title, icon } = Astro.props;
 ---
 
 <div class="feature flex flex-col gap-4">
     <Icon name={icon} />
-    <div>
+    <div class="text-left">
         <h3 class="mb-2 text-2xl font-medium">{title}</h3>
         <slot />
     </div>
