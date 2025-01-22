@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets'
+import Layout from '../layouts/Layout.astro'
+
+import firstImage from '../assets/in-memory/01.jpg'
+import secondImage from '../assets/in-memory/02.jpg'
+import thirdImage from '../assets/in-memory/03.jpg'
+---
+
+<Layout title="In memory of Alexandra Nikolova">
+    <section class="mx-auto mb-20 max-w-4xl">
+        <div class="text-center text-zinc-800">
+            <h1 class="text-4xl lg:text-5xl font-bold">In memory of Alexandra Nikolova</h1>
+            <h2 class="text-xl font-medium mt-5 leading-relaxed">
+                This page is in memmory of former CEO and Founder of the company. 
+                She was a great leader and a visionary. She will be missed by all of us.
+            </h2>
+        </div>
+    </section>
+    <section class="mx-auto mb-20 max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-3">
+        <Image src={firstImage} width={1000} height={500} class='h-[650px] grayscale rounded-xl' alt='' />
+        <Image src={secondImage} width={1000} height={500} class='h-[650px] grayscale rounded-xl' alt='' />
+        <Image src={thirdImage} width={1000} height={500} class='h-[650px] grayscale rounded-xl' alt='' />
+    </section>
+</Layout>
