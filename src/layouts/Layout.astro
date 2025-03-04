@@ -6,7 +6,7 @@ import Footer from "../components/Footer.astro";
 
 const { title, description } = Astro.props;
 
-const url = Astro.site;
+const faviconUrl = new URL('/favicon.svg', Astro.site);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const siteTitle = `${title} • Inovative software solutions for your needs.`;
 ---
@@ -21,24 +21,22 @@ const siteTitle = `${title} • Inovative software solutions for your needs.`;
         <meta name="title" content={title} />
         <meta name="description" content={description} />
         <meta name="keywords" content="software, development, web, mobile, desktop, applications, custom, solutions, automation, digital, transformation" />
-        <meta name="author" content="Prevista team" />
+        <meta name="author" content="Styria IT team" />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="English" />
         <meta name="revisit-after" content="7 days" />
         <meta name="rating" content="General" />
         
         <!-- open graph -->
-        <meta property="og:url" content={url} />
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:description" content={description} />
 
         <title>{siteTitle}</title>
 
-        <!-- favicon -->
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
         <link rel="canonical" href={canonicalUrl} />
+        <link rel="icon" type="image/svg+xml" href={faviconUrl} />
 
         <ClientRouter />
     </head>
