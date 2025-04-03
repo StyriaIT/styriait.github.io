@@ -1,6 +1,6 @@
 {
-  "name": "styria.it",
-  "description": "Styria software solutions",
+  "name": "Juverion",
+  "description": "Juverion website",
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
