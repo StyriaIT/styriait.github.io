@@ -19,11 +19,6 @@ import ivanImg from '../assets/heroes/ivan.png';
                 class="block mb-2 mx-auto max-w-full" 
             />
             <h1 class="text-4xl lg:text-5xl font-bold">Company heroes</h1>
-            <!--<h2 class="text-xl font-medium mt-5">
-                StyriaIT formely Quattor are provides <strong>end-to-end</strong> software solutions for your bussines needs and
-                our vision is to become the go-to "Solutions Company" for businesses facing complex software solutions
-                based on latest and modern <strong>open-source</strong> technologies.
-            </h2>-->
         </div>
     </section>
     <section class="mx-auto mb-20 max-w-5xl grid md:grid-cols-2 gap-10">
@@ -44,7 +39,9 @@ import ivanImg from '../assets/heroes/ivan.png';
     </section>
 </Layout>
 
-<style>
+<style scoped>
+    @reference "../styles/global.css";
+    
     .quote {
         quotes: auto;
         @apply text-center text-bayern-dark font-mono text-lg;
