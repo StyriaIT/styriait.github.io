@@ -12,7 +12,9 @@ const { title, icon } = Astro.props;
     </div>
 </div>
 
-<style>
+<style scoped>
+    @reference "../styles/global.css";
+
     .feature {
         @apply relative;
         @apply w-full;

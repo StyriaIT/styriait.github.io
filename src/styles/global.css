@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
+
+@theme {
+    --color-transparent: 'transparent';
+    --color-current: 'currentColor';
+    --color-bayern-light: oklch(0.63 0.1376 248.5);
+    --color-bayern-medium: oklch(0.47 0.1365 256.56);
+    --color-bayern-dark: oklch(0.36 0.1053 256.83);
+    --color-bayern-white: oklch(0.95 0.0059 239.82);
+    --color-bayern-eggwhite: oklch(0.83 0.027 242.81);
+}

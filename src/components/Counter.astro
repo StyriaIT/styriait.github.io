@@ -7,7 +7,9 @@ const { count, title } = Astro.props;
     <p>{title}</p>
 </div>
 
-<style>
+<style scoped>
+    @reference "../styles/global.css";
+
     div {
         @apply text-center;
     }

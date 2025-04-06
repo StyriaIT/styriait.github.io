@@ -2,6 +2,7 @@
   "name": "juverion",
   "description": "Juverion website",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -9,14 +10,14 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.6.1",
+    "astro": "^5.4.0",
     "astro-icon": "^1.1.4",
     "@astrojs/react": "^4.1.2",
-    "@astrojs/tailwind": "^5.1.4",
     "@iconify-json/ion": "^1.2.2",
     "@iconify-json/mdi": "^1.2.2",
-    "tailwindcss": "^3.4.17", 
-    "flowbite": "^2.5.2",
+    "@tailwindcss/vite": "^4.0.9",
+    "tailwindcss": "^4.0.9",
+    "flowbite": "^3.1.2",
     "leaflet": "^1.9.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
