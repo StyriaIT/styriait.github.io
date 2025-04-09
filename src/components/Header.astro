@@ -1,85 +1,49 @@
 ---
+import { Icon } from 'astro-icon/components';
 import Logo from './Logo.astro';
 ---
 
-<nav class="bg-white">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <span class="sr-only">Juverion</span>
-            <Logo />
-        </a>
-        <button
-            data-collapse-toggle="navbar-dropdown"
-            type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-dropdown"
-            aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 14" class="w-5 h-5">
-                <g 
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2">
-                    <path d="M1 1h15M1 7h15M1 13h15" />
-                </g>
-            </svg>
-        </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                    <a href="/" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark">Home</a>
-                </li>
-                <li>
-                    <a href="/services" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark">Services</a>
-                </li>
-                <li>
-                    <button
-                        id="dropdownNavbarLink"
-                        data-dropdown-toggle="dropdownNavbar"
-                        class="flex items-center justify-between w-full py-2 px-3 text-bayern-light hover:text-bayern-dark">
-                        Projects 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6" class="w-2.5 h-2.5 ms-2.5">
-                            <g 
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2">
-                                <path d="m1 1 4 4 4-4" />
-                            </g>
-                        </svg>
-                    </button>
-                    <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400">
-                            <li>
-                                <a href="https://lohen.eu" rel="external" target="_blank" class="block px-4 py-2 hover:text-blue-500">
-                                    Lohen
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://arzival.com" rel="external" target="_blank" class="block px-4 py-2 hover:text-blue-500">
-                                    Arzival
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://emmalinux.github.io" rel="external" target="_blank" class="block px-4 py-2 hover:text-blue-500">
-                                    EmmaLinux
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a href="/company" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark">
-                        Company
-                    </a>
-                </li>
-            </ul>
-        </div>
+<nav class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 bg-white">
+    <a href="/" class="flex items-center space-x-3">
+        <span class="sr-only">Juverion</span>
+        <Logo />
+    </a>
+    <button
+        data-collapse-toggle="toggleNavbar"
+        type="button"
+        class="text-bayern-light focus:text-bayern-dark hover:text-bayern-dark inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden">
+        <Icon name="mdi:format-align-justify" class="w-5 h-5" />
+    </button>
+    <div class="hidden w-full md:block md:w-auto" id="toggleNavbar">
+        <ul class="flex flex-col font-medium mt-4 p-4 md:p-0 md:mt-0 md:space-x-8 md:flex-row">
+            <li>
+                <a href="/" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark">Home</a>
+            </li>
+            <li>
+                <a href="/services" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark">Services</a>
+            </li>
+            <li>
+                <button data-dropdown-toggle="projectsDropdown" class="flex items-center justify-between w-full py-2 px-3 text-bayern-light hover:text-bayern-dark">
+                    Projects
+                    <Icon name="mdi:menu-down" class="w-7 h-7" />
+                </button>
+                <div id="projectsDropdown" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-400">
+                        <li>
+                            <a href="https://lohen.eu" rel="external" target="_blank" class="block px-4 py-2 hover:text-blue-500">Lohen</a>
+                        </li>
+                        <li>
+                            <a href="https://arzival.com" rel="external" target="_blank" class="block px-4 py-2 hover:text-blue-500">Arzival</a>
+                        </li>
+                        <li>
+                            <a href="https://emmalinux.github.io" rel="external" target="_blank" class="block px-4 py-2 hover:text-blue-500">EmmaLinux</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="/company" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark">Company</a>
+            </li>
+        </ul>
     </div>
 </nav>
-
-<script>
-    import "flowbite";
-</script>
