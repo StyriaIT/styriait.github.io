@@ -1,3 +1,5 @@
+import 'leaflet/dist/leaflet.css';
+
 import { divIcon } from "leaflet";
 import { MapContainer, TileLayer, Marker  } from 'react-leaflet';
 
