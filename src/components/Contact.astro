@@ -1,0 +1,31 @@
+---
+const defaultClassList = [
+    "w-11/12",
+    "px-4",
+    "py-3",
+    "border-2",
+    "placeholder:text-gray-800",
+    "rounded-md", 
+    "outline-none",
+    "focus:ring-4",
+    "border-gray-300",
+    "focus:border-gray-600",
+    "ring-gray-100"
+]
+---
+
+<form action="https://api.web3forms.com/submit" method="POST" novalidate>
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+    <div class="mb-5">
+        <input type="text" name="name" required placeholder="Full Name" class:list={defaultClassList} />
+    </div>
+    <div class="mb-5">
+        <input type="email" name="email" required placeholder="Email Address" class:list={defaultClassList} />
+    </div>
+    <div class="mb-3">
+        <textarea name="message" required placeholder="Your Message" class:list={defaultClassList}></textarea>
+    </div>
+    <button type="submit" class="px-5 py-2.5 rounded text-center border-2 border-black hover:bg-black text-black hover:text-white">
+        Send Message
+    </button>
+</form>

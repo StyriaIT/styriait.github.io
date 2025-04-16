@@ -8,6 +8,7 @@ import sapLogo from '../assets/partners/sap.svg';
 import qtLogo from '../assets/partners/qt.svg';
 import suseLogo from '../assets/partners/suse.svg';
 import vectorLogo from '../assets/partners/vector.svg';
+import Contact from '../components/Contact.astro';
 ---
 
 <Layout title="The Company">
@@ -29,7 +30,6 @@ import vectorLogo from '../assets/partners/vector.svg';
         </div>
     </section>
     <section class="mx-auto mb-20 max-w-6xl">
-        <h3 class="text-xl font-medium mt-5"></h3>
         <div class="grid md:grid-cols-3 gap-5">
             <div class="min-h-96">
                 <h2 class="mb-5 text-xl leading-relaxed">Unter den Linden 40, 10117 Berlin, Germany</h2>
@@ -57,43 +57,12 @@ import vectorLogo from '../assets/partners/vector.svg';
             </div>
         </div>
 
-            <div class="mx-auto max-w-3xl text-center">
-                <h2 class="mt-20 mb-5 text-2xl leading-relaxed">Have something to say? Fill up the form or send email.</h2>
-                <form action="https://api.web3forms.com/submit" method="POST" novalidate>
-                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-                    <div class="mb-5">
-                        <input
-                            type="text"
-                            placeholder="Full Name"
-                            required
-                            class="w-11/12 px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
-                            name="name"
-                        />
-                    </div>
-                    <div class="mb-5">
-                        <input
-                            type="email"
-                            placeholder="Email Address"
-                            name="email"
-                            required
-                            class="w-11/12 px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
-                        />
-                    </div>
-                    <div class="mb-3">
-                        <textarea
-                            name="message"
-                            required
-                            placeholder="Your Message"
-                            class="w-11/12 px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none h-36 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
-                        />
-                    </div>
-                    <button type="submit" class="px-5 py-2.5 rounded text-center transition ring-gray-200 border-2 border-black hover:bg-black text-black hover:text-white">
-                        Send Message
-                    </button>
-                </form>
-            </div>
+        <div class="mx-auto max-w-3xl text-center">
+            <h2 class="mt-20 mb-5 text-2xl leading-relaxed">Have something to say? Fill up the form or send email.</h2>
+            <Contact />
         </div>
-    </section>
+    </div>
+</section>
    <!-- <section class="mx-auto mb-20 max-w-6xl">
         <div class="text-center text-4xl lg:text-5xl font-bold">
             <h1 class="mb-5">Our partners</h1>
