@@ -4,8 +4,6 @@
 @source "../../node_modules/flowbite";
 
 @theme {
-    --color-transparent: 'transparent';
-    --color-current: 'currentColor';
     --color-bayern-light: oklch(0.63 0.1376 248.5);
     --color-bayern-medium: oklch(0.47 0.1365 256.56);
     --color-bayern-dark: oklch(0.36 0.1053 256.83);
