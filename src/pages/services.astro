@@ -7,68 +7,50 @@ import Feature from '../components/Feature.astro';
 import iconImg from '../assets/icon.svg';
 ---
 
-<Layout title="Services">
-    <section class="mb-20 mx-auto max-w-4xl text-center">
+<Layout title="Our provided services">
+    <div class="mb-20 mx-auto max-w-5xl">
         <Image 
             src={iconImg}
-            alt="Services"
-            width={100} 
+            alt="services"
+            width={75}
             height={75}
             class="block mb-2 mx-auto max-w-full" 
         />
-        <h1 class="text-4xl lg:text-5xl font-bold">Services</h1>
-        <h2 class="text-lg mt-4 text-slate-600">
-            We provide digital transformation, custom software, and an expert crew that redefine your expectations.
-        </h2>
-    </section>
-    <div class="mx-auto max-w-5xl">
-        <section class="text-center">
-            <h3 class="text-4xl lg:text-5xl font-bold">Custom software development</h3>
-            <div class="my-10 mx-1 grid md:grid-cols-2 gap-10">
-                <Feature icon="mdi:web" title="Web solutions">
-                    Our services encompass everything from initial website design and development to ongoing maintenance 
-                    and optimization. 
-                    Whether you need a simple brochure website or a complex e-commerce platform, 
-                    we leverage the latest technologies and best practices to deliver exceptional results. 
-                    We specialize in user-friendly designs that are both aesthetically pleasing and highly functional, 
-                    ensuring a seamless experience for your visitors.
-                </Feature>
-                <Feature icon="mdi:cloud" title="Cloud solutions">
-                    Proven ability to optimize cloud infrastructure for cost efficiency, scalability, and security. 
-                    Expertise in DevOps practices, automation, and migrating on-premises applications to the cloud.
-                    Seeking a challenging role leveraging cloud technologies to drive innovation and business growth.
-                </Feature>
-                <Feature icon="mdi:graph" title="DevOps solutions">
-                    DevOps solutions are a set of practices, tools, and a cultural philosophy that automates and integrates 
-                    the processes between software development and IT operations teams. 
-                    The goal is to shorten the systems development life cycle and provide continuous 
-                    delivery with high software quality. 
-                    This translates to faster releases, increased efficiency, and improved collaboration.
-                </Feature>
-                <Feature icon="mdi:account-convert-outline" title="Blockchain solutions">
-                    Blockchain solutions are revolutionizing industries by offering secure, transparent, and efficient systems 
-                    built on decentralized, immutable ledgers. Unlike traditional centralized databases, 
-                    blockchains distribute data across a network of computers, making them resistant 
-                    to single points of failure and manipulation. 
-                    This inherent security is crucial for applications requiring high trust and data integrity.
-                </Feature>
-            </div>
-        </section>
-        <section class="text-center">
-            <h3 class="text-4xl lg:text-5xl font-bold">Enterprise application development</h3>
-            <div class="my-10 mx-1 grid md:grid-cols-3 gap-10">
-                <Feature icon="jakarta" title="Jakarta applications" />
-                <Feature icon="spring" title="Spring applications" />
-                <Feature icon="vertx" title="Vert.x applications" />
-            </div>
-        </section>
-        <section class="text-center">
-            <h3 class="text-4xl lg:text-5xl font-bold">Web application development</h3>
-            <div class="my-10 mx-1 grid md:grid-cols-3 gap-10">
-                <Feature icon="bunjs" title="Bun.js applications" />
-                <Feature icon="reactjs" title="React.js applications" />
-                <Feature icon="astro" title="Astro applications" />
-            </div>
+        <div class="text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold">Our provided services</h2>
+            <h3 class="text-lg mt-4 text-slate-600">
+                We provide digital transformation, custom software, and an expert crew that redefine your expectations.
+            </h3>
+        </div>
+       
+        <section class="my-10 mx-1 grid md:grid-cols-2 gap-10">
+            <Feature icon="mdi:web" title="Web solutions">
+                Our services encompass everything from initial website design and development to ongoing maintenance 
+                and optimization. 
+                Whether you need a simple brochure website or a complex e-commerce platform, 
+                we leverage the latest technologies and best practices to deliver exceptional results. 
+                We specialize in user-friendly designs that are both aesthetically pleasing and highly functional, 
+                ensuring a seamless experience for your visitors.
+            </Feature>
+            <Feature icon="mdi:cloud" title="Cloud solutions">
+                Proven ability to optimize cloud infrastructure for cost efficiency, scalability, and security. 
+                Expertise in DevOps practices, automation, and migrating on-premises applications to the cloud.
+                Seeking a challenging role leveraging cloud technologies to drive innovation and business growth.
+            </Feature>
+            <Feature icon="mdi:graph" title="DevOps solutions">
+                DevOps solutions are a set of practices, tools, and a cultural philosophy that automates and integrates 
+                the processes between software development and IT operations teams. 
+                The goal is to shorten the systems development life cycle and provide continuous 
+                delivery with high software quality. 
+                This translates to faster releases, increased efficiency, and improved collaboration.
+            </Feature>
+            <Feature icon="mdi:account-convert-outline" title="Blockchain solutions">
+                Blockchain solutions are revolutionizing industries by offering secure, transparent, and efficient systems 
+                built on decentralized, immutable ledgers. Unlike traditional centralized databases, 
+                blockchain distribute data across a network of computers, making them resistant 
+                to single points of failure and manipulation. 
+                This inherent security is crucial for applications requiring high trust and data integrity.
+            </Feature>
         </section>
     </div>
 </Layout>
