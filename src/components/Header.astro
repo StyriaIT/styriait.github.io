@@ -2,15 +2,12 @@
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 
-import juverionLogo from '../assets/logo.png';
+import juverionLogo from '../assets/logo.svg';
 ---
 
 <nav class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 bg-white">
-    <a href="/" class="flex items-center space-x-3">
+    <a href="/" class="flex items-center space-x-3" title="Juverion">
         <span class="sr-only">Juverion</span>
-        <!--
-            <Logo />
-        -->
         <Image src={juverionLogo} alt="Juverion Logo" class="w-16 h-16" />
     </a>
     <button
@@ -22,16 +19,16 @@ import juverionLogo from '../assets/logo.png';
     <div class="hidden w-full md:block md:w-auto" id="toggleNavbar">
         <ul class="flex flex-col font-medium mt-4 p-4 md:p-0 md:mt-0 md:space-x-8 md:flex-row">
             <li>
-                <a href="/" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark">Home</a>
+                <a href="/" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark" title="Home page">Home</a>
             </li>
             <li>
-                <a href="/services" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark">Services</a>
+                <a href="/services" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark" title="Services page">Services</a>
             </li>
             <li>
-                <a href="/company" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark">Company</a>
+                <a href="/company" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark" title="Company page">Company</a>
             </li>
              <li>
-                <a href="https://try.lohen.eu" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark">AI</a>
+                <a href="https://try.lohen.eu" class="block py-2 px-3 text-bayern-light hover:text-bayern-dark" title="Try our AI tools.">AI</a>
             </li>
         </ul>
     </div>
